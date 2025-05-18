@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Style Hive</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">👗 Style Hive</h1>
+    <div class="row">
+      {% for id, name, price, image in products %}
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="{{ image }}" class="card-img-top" alt="{{ name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ name }}</h5>
+              <p class="card-text">₹{{ price }}</p>
+              <a href="/add_to_cart/{{ id }}" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="text-center">
+      <a href="/cart" class="btn btn-success mt-3">View Cart 🛒</a>
+    </div>
+  </div>
+</body>
+</html>
